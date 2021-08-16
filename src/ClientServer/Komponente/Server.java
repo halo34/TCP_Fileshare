@@ -59,7 +59,6 @@ public class Server extends ConnectionComponents implements Runnable{
             System.out.println("Client connect");
             setDataInputStream(new DataInputStream(getSocket().getInputStream()));
             setDataOutputStream(new DataOutputStream(getSocket().getOutputStream()));
-
             receiveFile();
             closeConnection();
             getSocket().close();

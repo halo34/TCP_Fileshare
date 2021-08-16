@@ -23,22 +23,24 @@ public class Controller {
 
     private static Stage scene;
     private static final Path DESKTOP = Path.of(System.getProperty("user.home") + "/Desktop");
+
     static Path filechoose() throws NoSuchElementException {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open File to send");
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("All Files","*.*"));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("All Files", "*.*"));
         File selectedFile = fileChooser.showOpenDialog(scene);
-        if (selectedFile!= null) {
+        if (selectedFile != null) {
             return selectedFile.toPath();
         } else {
             throw new NoSuchElementException();
         }
     }
+
     static Path folderChooser() {
         final DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setInitialDirectory(DESKTOP.toFile());
         final File selectedDirectory = directoryChooser.showDialog(scene);
-        if (selectedDirectory!= null) {
+        if (selectedDirectory != null) {
             return selectedDirectory.toPath();
         } else {
             return DESKTOP;
